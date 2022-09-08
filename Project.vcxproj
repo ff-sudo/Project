@@ -19,13 +19,43 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\delegate\ViewDelegate.cpp" />
     <ClCompile Include="src\delegate\WindowDelegate.cpp" />
+    <ClCompile Include="src\handler\PageHandler.cpp" />
+    <ClCompile Include="src\handler\V8Handler.cpp" />
+    <ClCompile Include="src\handler\WindowHandler.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\mainwidow\App.cpp" />
+    <ClCompile Include="src\mainwidow\Other.cpp" />
+    <ClCompile Include="src\mainwidow\Renderer.cpp" />
+    <ClCompile Include="src\scheme\HttpSchemeFactory.cpp" />
+    <ClCompile Include="src\sqlite\shell.c" />
+    <ClCompile Include="src\sqlite\sqlite3.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\delegate\ViewDelegate.h" />
     <ClInclude Include="src\delegate\WindowDelegate.h" />
+    <ClInclude Include="src\handler\DialogHandler.h" />
+    <ClInclude Include="src\handler\PageHandler.h" />
+    <ClInclude Include="src\handler\V8Handler.h" />
+    <ClInclude Include="src\handler\WindowHandler.h" />
+    <ClInclude Include="src\helper\json.hpp" />
     <ClInclude Include="src\mainwidow\App.h" />
+    <ClInclude Include="src\mainwidow\Other.h" />
+    <ClInclude Include="src\mainwidow\Renderer.h" />
+    <ClInclude Include="src\ReleaseCallback.h" />
+    <ClInclude Include="src\resource.h" />
+    <ClInclude Include="src\scheme\HttpSchemeFactory.h" />
+    <ClInclude Include="src\sqlite\sqlite3.h" />
+    <ClInclude Include="src\sqlite\sqlite3ext.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\html\a.js" />
+    <None Include="bin\html\icon\iconfont.css" />
+    <None Include="bin\html\index.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="bin\html\icon\iconfont.ttf" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -96,7 +126,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <SDLCheck>true</SDLCheck>
+      <SDLCheck>false</SDLCheck>
       <PreprocessorDefinitions>WIN32;_WINDOWS;__STDC_CONSTANT_MACROS;__STDC_FORMAT_MACROS;_WIN32;UNICODE;_UNICODE;WINVER=0x0601;_WIN32_WINNT=0x601;NOMINMAX;WIN32_LEAN_AND_MEAN;_HAS_EXCEPTIONS=0;PSAPI_VERSION=1;CEF_USE_SANDBOX;CEF_USE_ATL;_HAS_ITERATOR_DEBUGGING=0;_SILENCE_ALL_CXX17_DEPRECATION_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>

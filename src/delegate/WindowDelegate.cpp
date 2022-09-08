@@ -1,16 +1,30 @@
-#include "WindowDelegate.h"
+ï»¿#include "WindowDelegate.h"
 #include "include/cef_app.h"
 #include "include/views/cef_display.h"
+bool WindowDelegate::IsFrameless(CefRefPtr<CefWindow> window) {
+    if (isDevTool) {
+        return false;
+    }
+    return true;
+}
 void WindowDelegate::OnWindowCreated(CefRefPtr<CefWindow> window) {
-    window->AddChildView(browser_view_);
+    window->AddChildView(browserView);
     window->Show();
-    browser_view_->RequestFocus();
-    window->SetTitle(L"°²");
+    browserView->RequestFocus();
+    window->SetTitle(L"å®‰");
     //window->CenterWindow(CefSize(800, 600));
 }
 void WindowDelegate::OnWindowDestroyed(CefRefPtr<CefWindow> window) {
-    browser_view_ = nullptr;
-    CefQuitMessageLoop();
+    browserView = nullptr;
+}
+
+bool WindowDelegate::CanClose(CefRefPtr<CefWindow> window) {
+    bool result = true;
+    CefRefPtr<CefBrowser> browser = browserView->GetBrowser();
+    if (browser) {
+        result = browser->GetHost()->TryCloseBrowser();
+    }
+    return result;
 }
 
 CefRect WindowDelegate::GetInitialBounds(CefRefPtr<CefWindow> window) {
