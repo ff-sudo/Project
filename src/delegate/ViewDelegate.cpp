@@ -3,6 +3,6 @@
 
 bool ViewDelegate::OnPopupBrowserViewCreated(CefRefPtr<CefBrowserView> browserView, CefRefPtr<CefBrowserView> popupBrowserView, bool isDevtools)
 {
-    CefWindow::CreateTopLevelWindow(new WindowDelegate(popupBrowserView,isDevtools));
+    CefWindow::CreateTopLevelWindow(new WindowDelegate(popupBrowserView,nullptr,isDevtools));
     return true;
 }

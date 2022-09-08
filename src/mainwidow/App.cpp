@@ -12,12 +12,16 @@
 void App::OnContextInitialized() {
 	CEF_REQUIRE_UI_THREAD(); 
 	CefRegisterSchemeHandlerFactory("my", "liulun", new HttpSchemeFactory());   
-	std::string url = "my://liulun/index.html?a=123";
+	std::string url = "www.baidu.com";
+	std::string url2 = "my://liulun/title.html?a=123";
 	CefBrowserSettings settings;
 	CefRefPtr<PageHandler> pageHandler(new PageHandler());
+	CefRefPtr<PageHandler> pageHandler2(new PageHandler());
 	CefRefPtr<ViewDelegate> viewDelegate(new ViewDelegate());
 	CefRefPtr<CefBrowserView> browserView = CefBrowserView::CreateBrowserView(pageHandler, url, settings, nullptr, nullptr, viewDelegate);
-    CefWindow::CreateTopLevelWindow(new WindowDelegate(browserView,false));
+	CefRefPtr<CefBrowserView> titleView = CefBrowserView::CreateBrowserView(pageHandler, url2, settings, nullptr, nullptr, nullptr);
+
+    CefWindow::CreateTopLevelWindow(new WindowDelegate(browserView, titleView,false));
 }
 void App::OnRegisterCustomSchemes(CefRawPtr<CefSchemeRegistrar> registrar) {	
 	registrar->AddCustomScheme("my", CEF_SCHEME_OPTION_STANDARD | CEF_SCHEME_OPTION_CORS_ENABLED);

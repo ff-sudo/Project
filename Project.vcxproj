@@ -53,6 +53,7 @@
     <None Include="bin\html\a.js" />
     <None Include="bin\html\icon\iconfont.css" />
     <None Include="bin\html\index.html" />
+    <None Include="bin\html\title.html" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="bin\html\icon\iconfont.ttf" />

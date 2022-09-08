@@ -9,8 +9,14 @@ bool WindowDelegate::IsFrameless(CefRefPtr<CefWindow> window) {
 }
 void WindowDelegate::OnWindowCreated(CefRefPtr<CefWindow> window) {
     window->AddChildView(browserView);
+
+    // 添加一个子窗口
+    overlayController = window->AddOverlayView(titleView, CEF_DOCKING_MODE_CUSTOM);
+    overlayController->SetVisible(true);
+    overlayController->SetSize(CefSize(browserView->GetSize().width, 30));
+
     window->Show();
-    browserView->RequestFocus();
+    //browserView->RequestFocus();
     window->SetTitle(L"安");
     //window->CenterWindow(CefSize(800, 600));
 }

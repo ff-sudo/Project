@@ -109,6 +109,9 @@
     <None Include="bin\html\icon\iconfont.css">
       <Filter>资源文件</Filter>
     </None>
+    <None Include="bin\html\title.html">
+      <Filter>资源文件</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Font Include="bin\html\icon\iconfont.ttf">
