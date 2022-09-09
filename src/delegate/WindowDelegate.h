@@ -5,14 +5,18 @@ class WindowDelegate : public CefWindowDelegate
 {
 public:
 	explicit WindowDelegate(CefRefPtr<CefBrowserView> browser_view, CefRefPtr<CefBrowserView> title_View, bool dev_tool) : browserView(browser_view),titleView(title_View), isDevTool(dev_tool) {};
-	//bool CanResize(CefRefPtr<CefWindow> window) override { return false; }
+	bool CanResize(CefRefPtr<CefWindow> window) override;
 	void OnWindowCreated(CefRefPtr<CefWindow> window) override;
 	void OnWindowDestroyed(CefRefPtr<CefWindow> window) override;
+	void OnWindowChanged(CefRefPtr<CefView> view, bool added) override;
 	bool CanClose(CefRefPtr<CefWindow> window) override;
 	CefRect GetInitialBounds(CefRefPtr<CefWindow> window) override;
 	bool IsFrameless(CefRefPtr<CefWindow> window) override;
 	WindowDelegate(const WindowDelegate&) = delete;
 	WindowDelegate& operator=(const WindowDelegate&) = delete;
+	
+
+
 private:
 	CefRefPtr<CefBrowserView> browserView;
 	CefRefPtr<CefBrowserView> titleView;
