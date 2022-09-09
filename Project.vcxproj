@@ -54,6 +54,7 @@
     <None Include="bin\html\icon\iconfont.css" />
     <None Include="bin\html\index.html" />
     <None Include="bin\html\title.html" />
+    <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="bin\html\icon\iconfont.ttf" />
